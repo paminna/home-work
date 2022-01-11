@@ -1,6 +1,7 @@
 package com.sbrf.reboot.repository;
 
 import com.sbrf.reboot.repository.impl.FileAccountRepository;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -33,7 +34,7 @@ class FileAccountRepositoryTest {
     }
 
     @Test
-    void failGetAllAccountsByClientId() {
+    void failGetAllAccountsByClientId(){
         long clientId = 1L;
 
         String filePath = "somePath";
