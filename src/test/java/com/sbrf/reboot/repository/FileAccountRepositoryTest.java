@@ -18,7 +18,7 @@ class FileAccountRepositoryTest {
     @Test
     void onlyPersonalAccounts() throws IOException {
         String filePath = "src/main/resources/Accounts.txt";
-        accountRepository = new FileAccountRepository(filePath);
+        accountRepository =  new FileAccountRepository(filePath);
 
         long clientId = 1L;
         Set<Long> actualAccounts = accountRepository.getAllAccountsByClientId(clientId);
