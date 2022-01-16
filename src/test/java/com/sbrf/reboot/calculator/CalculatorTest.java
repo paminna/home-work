@@ -30,4 +30,19 @@ class CalculatorTest {
     void classHasSevenMethods() {
         assertEquals(7, Calculator.class.getMethods().length - Object.class.getMethods().length);
     }
+
+    @Test
+    void evenOrOdd() {
+        assertEquals(0, new Calculator().evenOrOdd(2));
+    }
+
+    @Test
+    void remains() {
+        assertEquals(1, new Calculator().remains(11, 5));
+    }
+
+    @Test
+    void isPositive() {
+        assertEquals(1, new Calculator().isPositive( 5));
+    }
 }
