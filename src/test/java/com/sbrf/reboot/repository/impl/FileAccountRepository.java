@@ -11,7 +11,7 @@ import lombok.SneakyThrows;
 public class FileAccountRepository implements AccountRepository{
 
     HashMap<Long, Set<Long>> allAccounts = new HashMap<>();
-    public FileAccountRepository(String inputFile) throws FileNotFoundException {
+    public FileAccountRepository(String inputFile) throws IOException {
         try(BufferedReader read = new BufferedReader(new FileReader(inputFile)))
         {
             StringBuilder line = new StringBuilder();
