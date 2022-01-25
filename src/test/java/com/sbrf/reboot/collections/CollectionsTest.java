@@ -36,8 +36,7 @@ public class CollectionsTest {
         students.add("Ivanov");
         students.add("Petrov");
         students.add("Sidorov");
-        students.add("Kozlov");
-
+        students.add(0, "Kozlov");
 
         assertEquals(4, students.size());
     }
@@ -80,11 +79,17 @@ public class CollectionsTest {
         Book second = new Book();
         Book third = new Book();
 
-        Set<Book> bookshelf = null;
-        bookshelf = new LinkedHashSet<>();
+        List<Book> bookshelf = null;
+        bookshelf = new LinkedList<>();
         bookshelf.add(first);
         bookshelf.add(second);
         bookshelf.add(third);
+
+        System.out.println(bookshelf);
+        bookshelf.remove(second);
+        System.out.println(bookshelf);
+        bookshelf.add(1, second);
+        System.out.println(bookshelf);
 
         assertEquals(3, bookshelf.size());
     }
