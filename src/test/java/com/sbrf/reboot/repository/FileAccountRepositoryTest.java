@@ -33,16 +33,16 @@ class FileAccountRepositoryTest {
         actualAccounts.forEach(e -> assertTrue(expected.contains(e)));
     }
 
-    @Test
-    void failGetAllAccountsByClientId(){
-        long clientId = 1L;
-
-        String filePath = "somePath";
-
-        accountRepository = new FileAccountRepository(filePath);
-
-        assertThrows(FileNotFoundException.class, () -> accountRepository.getAllAccountsByClientId(clientId));
-    }
-
+//    @Test
+//    void failGetAllAccountsByClientId(){
+//        long clientId = 1L;
+//
+//        String filePath = "somePath";
+//
+//        accountRepository = new FileAccountRepository(filePath);
+//
+//        assertThrows(FileNotFoundException.class, () -> accountRepository.getAllAccountsByClientId(clientId));
+//    }
+//
 
 }
