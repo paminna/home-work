@@ -32,11 +32,11 @@ public class CollectionsTest {
     public void addStudentToRating() {
 
         List<String> students = null;
-        students = new ArrayList<>();
+        students = new LinkedList<>();
         students.add("Ivanov");
         students.add("Petrov");
         students.add("Sidorov");
-        students.add(0, "Kozlov");
+        students.add(0,"Kozlov");
 
         assertEquals(4, students.size());
     }
