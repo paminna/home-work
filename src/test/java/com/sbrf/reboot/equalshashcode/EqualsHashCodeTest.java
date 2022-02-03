@@ -40,15 +40,18 @@ public class EqualsHashCodeTest {
             //Рефлексивность: объект должен равняться самому себе
             if (o == this)
                 return true;
+            // объявляем переменную типа, с которой хотим сравнить и приводим о к этому типу
             Car car = (Car)o;
+            // проверяем, что все значения полей объектов равны и объекты имеют один тип
             if (       (car.getModel().equals(this.model))
                     && (car.getMaxSpeed() == this.maxSpeed)
                     && (car.getDate().equals(this.releaseDate))
                     && (car.getColor().equals(car.color))
                     && (car.getClass().equals(this.getClass())))
                 return true;
-            if (o == null || o.getClass() != this.getClass())
-                return false;
+            // проверка на то, что объект не равен null и что объекты имеют один тип
+            if (o != null || o.getClass() == this.getClass())
+                return true;
             return false;
         }
 
