@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -21,7 +23,7 @@ public class StreamTest {
 
         List<Integer> expectedIntegers = Arrays.asList(3, 6, 8, 9);
 
-        List<Integer> actualIntegers = null; //add code here
+        List<Integer> actualIntegers = integers.stream().sorted().collect(Collectors.toList()); //add code here
 
         assertEquals(expectedIntegers, actualIntegers);
     }
@@ -36,8 +38,7 @@ public class StreamTest {
 
         List<Integer> expectedIntegers = Arrays.asList(6, 8);
 
-        List<Integer> actualIntegers = null; //add code here
-
+        List<Integer> actualIntegers = integers.stream().filter(obj -> obj % 2 == 0).collect(Collectors.toList()); //add code here
         assertEquals(expectedIntegers, actualIntegers);
 
     }
@@ -71,8 +72,7 @@ public class StreamTest {
 
         );
 
-        List<Book> actualBooks = null; //add code here
-
+        List<Book> actualBooks = books.stream().filter(obj -> obj.author == "Maria").sorted((b1, b2) -> b1.price.compareTo(b2.price)).collect(Collectors.toList()); //add code here
         assertEquals(expectedBooks, actualBooks);
 
     }
@@ -88,7 +88,7 @@ public class StreamTest {
 
         List<String> expectedContracts = Arrays.asList("M-NCC-1-CH", "M-NCC-2-US", "M-NCC-3-NH");
 
-        List<String> actualContracts = null; //add code here
+        List<String> actualContracts = contracts.stream().map(obj -> "M-" + obj).collect(Collectors.toList()); //add code here
 
         assertEquals(expectedContracts, actualContracts);
 
