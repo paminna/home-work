@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -92,6 +92,30 @@ public class StreamTest {
 
         assertEquals(expectedContracts, actualContracts);
 
+    }
+
+    @Test
+    public void isMatching() {
+        List<String> array = Arrays.asList("Hero", "Heroic", "Her");
+        boolean excpected = array.stream().allMatch((s) -> s.contains("H"));
+        assertEquals(excpected, true);
+    }
+
+
+    @Test
+    public void findMin()
+    {
+        List<Integer> array = Arrays.asList(94, 13, -12);
+        Integer res = array.stream().min(Integer::compareTo).get();
+        assertEquals(res, -12);
+    }
+
+    @Test
+    public void findAmountElements()
+    {
+        List<Integer> array = Arrays.asList(5, 10, 32);
+        Integer a = Math.toIntExact(array.stream().filter(obj -> obj % 2 == 0).count());
+        assertEquals(a, 2);
     }
 
 }
