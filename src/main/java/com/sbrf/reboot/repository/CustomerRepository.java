@@ -3,6 +3,7 @@ package com.sbrf.reboot.repository;
 import com.sbrf.reboot.dto.Customer;
 import lombok.NonNull;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface CustomerRepository {
@@ -10,5 +11,8 @@ public interface CustomerRepository {
     boolean createCustomer(@NonNull String userName, String eMail);
 
     List<Customer> getAll();
+
+    boolean doesCustomerExist(String name) throws SQLException;
+    Customer findByEmail(String email) throws SQLException;
 
 }

@@ -5,8 +5,10 @@ import com.sbrf.reboot.repository.CustomerRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.sql.SQLException;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CustomerH2RepositoryTest {
@@ -33,5 +35,21 @@ class CustomerH2RepositoryTest {
         boolean mariaCreated = customerRepository.createCustomer("Maria", "maria98@ya.ru");
 
         assertTrue(mariaCreated);
+    }
+
+    @Test
+    void doesCustomerExist() throws SQLException {
+
+        boolean exist = customerRepository.doesCustomerExist("Maria");
+
+        assertTrue(exist);
+    }
+
+    @Test
+    void findByEmail() throws SQLException {
+
+        Customer email = customerRepository.findByEmail("maria98@ya.ru");
+
+        assertEquals(email.getEMail(), "maria98@ya.ru");
     }
 }
