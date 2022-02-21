@@ -6,7 +6,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 public class ToJSON {
-    public static void main(String[] args) throws IOException {
+    public String toJson () throws IOException {
         ClientData clientDataDto = new ClientData("Ivan", "Ivanov", "Ivanovich", 19273.73, 54);
         StringWriter writer = new StringWriter();
 
@@ -14,18 +14,12 @@ public class ToJSON {
         mapper.writeValue(writer,clientDataDto);
 
         String result = writer.toString();
-        System.out.println("Serialized");
         System.out.println(result);
+        return result;
+    }
 
-        StringReader reader = new StringReader(result);
-        ObjectMapper mapper1 = new ObjectMapper();
-
-        ClientData clientDataDto1 = mapper1.readValue(reader, ClientData.class);
-        System.out.println("Deserialized");
-        System.out.println(clientDataDto1.getName());
-        System.out.println(clientDataDto1.getSecondName());
-        System.out.println(clientDataDto1.getPatronymic());
-        System.out.println(clientDataDto1.getBalance());
-        System.out.println(clientDataDto1.getAccountNumber());
+    public static void main(String argc[]) throws IOException {
+        ToJSON toJSON = new ToJSON();
+        System.out.println(toJSON.toJson());
     }
 }
