@@ -18,7 +18,6 @@ public class CompletableFeatureTest {
         ReportService reportService = Mockito.mock(ReportService.class);
 
         when(reportService.sendReport("Отправляю отчет")).then(e->{
-
             Thread.sleep(Duration.ofSeconds(3).toMillis());
             return "SUCCESS";
         });
